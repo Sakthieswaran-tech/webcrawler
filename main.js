@@ -1,4 +1,5 @@
 const { crawlPage } = require("./crawl");
+const sortPages = require("./report");
 
 async function main(){
     if(process.argv.length < 3){
@@ -11,7 +12,7 @@ async function main(){
     const baseURL = process.argv[2];
     console.log('Started crawling');
     const pages = await crawlPage(baseURL, baseURL, {});
-    console.log(pages);
+    sortPages(pages);
 }
 
 main();
